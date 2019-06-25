@@ -5,6 +5,8 @@
 ```
 git clone https://github.com/KipCrossing/ESP2866-MicroPython
 
+cd ESP2866-MicroPython
+
 pip3 install adafruit-ampy --upgrade
 
 ampy --port /dev/ttyUSB0 put main.py
