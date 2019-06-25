@@ -20,6 +20,8 @@ _Note: only edit files in the /scripts directory and rerun them using_
 ./upyrun-esp8266.sh
 ```
 
+![nodemcu pinout](nodemcu_pins.png)
+
 ## REPL over USB
 
 To connect to the REPL over USB, use:
