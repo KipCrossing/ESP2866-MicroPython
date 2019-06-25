@@ -12,7 +12,11 @@ ampy --port /dev/ttyUSB0 put main.py
 ./upyrun-esp8266.sh
 ```
 
-_Note: only edit files in the /BoardFiles directory_
+_Note: only edit files in the /scripts directory and rerun them using_
+
+```
+./upyrun-esp8266.sh
+```
 
 ## REPL over USB
 
@@ -39,7 +43,7 @@ ampy --port /dev/ttyUSB0 put test.py
 Or copy an entire directory
 
 ```
-ampy --port /dev/ttyUSB0 put BoardFiles
+ampy --port /dev/ttyUSB0 put scripts
 ```
 
 Check if the file has been put onto the ESP8266 via REPL
@@ -74,19 +78,19 @@ ampy --port /dev/ttyUSB0 rm test.py
 remove directories
 
 ```
-ampy --port /dev/ttyUSB0 rmdir BoardFiles
+ampy --port /dev/ttyUSB0 rmdir scripts
 ```
 
 For more on [Ampy](https://learn.adafruit.com/micropython-basics-load-files-and-run-code/install-ampy#upgrade-ampy) see [here](https://learn.adafruit.com/micropython-basics-load-files-and-run-code/file-operations)
 
 ## Quick deploy method
 
-The idea here is to set up the file structure for rapid prototyping. Fri-st create a directory called BoardFiles and put `__init__.py` and `main.py` files inside. This will be where you do all of your coding.
+The idea here is to set up the file structure for rapid prototyping. Fri-st create a directory called scripts and put `__init__.py` and `main.py` files inside. This will be where you do all of your coding.
 
 Second, in the parent directory, add a `main.py` file with the following code:
 
 ```python
-from BoardFiles import main
+from scripts import main
 ```
 
 Put this file on the board
@@ -95,18 +99,18 @@ Put this file on the board
 ampy --port /dev/ttyUSB0 put main.py
 ```
 
-Now, whenever you want to run new code on the board, simply edit the `/DoardFiles/main.py` file and put it on the board:
+Now, whenever you want to run new code on the board, simply edit the `/scripts/main.py` file and put it on the board:
 
 ```
-ampy --port /dev/ttyUSB0 rmdir BoardFiles
-ampy --port /dev/ttyUSB0 put BoardFiles/
+ampy --port /dev/ttyUSB0 rmdir scripts
+ampy --port /dev/ttyUSB0 put scripts/
 ampy --port /dev/ttyUSB0 run main.py
 ```
 
 This has been put into the upyrun-esp8266.sh scrip for easy run:
 
 ```
-comp:~/ESP2866-MicroPython$ ./upyrun-esp8266.sh
+./upyrun-esp8266.sh
 ```
 
 Takes about 4 seconds to run
